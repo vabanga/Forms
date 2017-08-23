@@ -6,7 +6,7 @@
     <br>
     <br>
     <input type="submit" value="Отправить"">
-    <input type="button" onclick="document.location.href = '/homeWorkk';" value="Назад"/>
+    <input type="button" onclick="document.location.href = '/';" value="Назад"/>
 </form>
 <form method="post" action="?act=list">
     <input type="submit" onclick="location='?act=list';" value="Редирект">
