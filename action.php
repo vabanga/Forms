@@ -1,19 +1,4 @@
 <?php
-
-if($_FILES['userfile']){
-	$des = 'C:/OpenServer/domains/tes/tests/';
-	$file = $_FILES['userfile'];
-	define(PATH_UPLOAD,'tests');
-	$ext = explode(".", $file['name']);
-	$uploadfile = $des . basename($_FILES['userfile']['name']);
-	if($ext[1]=='json'){
-		move_uploaded_file($file["tmp_name"],$uploadfile);
-		echo"Файл отправлен";
-	}else{
-		echo"Файл НЕ отправлен";
-	}
-}
-
 if(!isset($_GET['act'])){
 
 }else{
@@ -29,9 +14,6 @@ if(!isset($_GET['act'])){
 
 }
 
-if($_POST['redirect']){
-	header('Location: index.php');
-}
 if($_POST['Act']){
 	header('Location: admin.php');
 }
