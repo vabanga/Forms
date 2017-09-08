@@ -12,27 +12,20 @@ if(isset($_GET["fileid"])) {
 		$cont = file_get_contents($files[$_GET['fileid']]);
 		$tests = json_decode($cont,true);
 		$v = [];
-		foreach ($tests as $v){
-			foreach ($v as $v1){
-			}
-		}
 		?>
 		<form action="" method="post">
 			<fieldset>
-			<legend><?= $v["title"] ?></legend>
-				<label>
-					<input type="radio" name="q1" value="10"><?php $v[1] ?>10
-				</label>
-				<label>
-					<input type="radio" name="q1" value="100"><?php $v[2] ?>100
-				</label>
-				<label>
-					<input type="radio" name="q1" value="1000"><?php $v[3] ?>1000
-				</label>
-				<label>
-					<input type="radio" name="q1" value="10000"><?php $v[4] ?>10000
-				</label>
-				<?php
+			<legend><?= $tests[0]["title"] ?></legend>
+                <?php
+                foreach ($tests as $v) {
+                    foreach ($v['answers'] as $ot) {
+                        ?>
+                        <label>
+                            <input type="radio" name="q1" value="<?=$ot?>"><?php echo $ot; ?>
+                        </label>
+                        <?php
+                    }
+                }
 				if($_POST['q1']){
 					if($_POST['q1'] == $v['right']){
 						$right = 'Вы ответели правильно!';
